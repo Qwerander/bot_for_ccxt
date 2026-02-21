@@ -41,3 +41,16 @@ API_KEYS = {
         'secret': os.getenv('BINANCE_SECRET', '')
     }
 }
+
+# Настройки рисков для реальной торговли
+RISK_MANAGEMENT = {
+    'max_trade_size_usdt': 100,  # Максимальный размер сделки в USDT
+    'max_daily_loss_usdt': 500,   # Максимальный дневной убыток
+    'max_open_positions': 3,       # Максимум открытых позиций
+    'stop_loss_percent': 5,        # Стоп-лосс по умолчанию
+    'take_profit_percent': 10,     # Тейк-профит по умолчанию
+}
+
+# Режим торговли (можно менять здесь или через аргументы командной строки)
+TRADING_MODE = os.getenv('TRADING_MODE', 'paper')  # 'paper' или 'real'
+DEFAULT_EXCHANGE = os.getenv('DEFAULT_EXCHANGE', 'binance')

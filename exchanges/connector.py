@@ -89,3 +89,28 @@ class ExchangeConnector:
             spread = (ticker['ask'] - ticker['bid']) / ticker['bid'] * 100
             return spread
         return None
+    
+    def print_portfolio(self):
+        """Заглушка для совместимости с PaperExchange"""
+        balance = self.get_balance()
+        if balance:
+            print(f"\n{Fore.CYAN}{'='*50}")
+            print(f"📊 ПОРТФЕЛЬ (Реальный)")
+            print(f"{'='*50}")
+            
+            total = 0
+            for currency, amount in balance['total'].items():
+                if amount > 0:
+                    try:
+                        ticker = self.get_ticker(f"{currency}/USDT")
+                        if ticker and ticker.get('last'):
+                            usd_value = amount * ticker['last']
+                            total += usd_value
+                            print(f"{currency}: {amount:.8f} ≈ ${usd_value:.2f}")
+                        else:
+                            print(f"{currency}: {amount}")
+                    except:
+                        print(f"{currency}: {amount}")
+            
+            print(f"{Fore.GREEN}💰 ОБЩАЯ СТОИМОСТЬ: ~${total:.2f}")
+            print(f"{Fore.CYAN}{'='*50}\n")
