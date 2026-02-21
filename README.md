@@ -22,7 +22,14 @@ pip install -r requirements.txt
 
 #### переименуй env_example -> .env и добавь свои ключи
 
-## Запуск
+## Запуск тестовой торговли
 ```
-python main.py
+python main.py  
 ```
+
+## Запуск роеальной торговли торговли*
+```
+python main.py --mode real --exchange bybit  
+```
+
+###### *биржу заменить если не bybit  
