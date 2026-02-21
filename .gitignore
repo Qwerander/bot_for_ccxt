@@ -1,0 +1,34 @@
+# Виртуальное окружение
+venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Дистрибутивы
+dist/
+build/
+*.egg-info/
+
+# Данные
+collected_data/
+*.csv
+*.json
+
+# Файлы с секретами
+.env
+*.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Логи
+*.log
